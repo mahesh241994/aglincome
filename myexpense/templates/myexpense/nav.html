@@ -1,0 +1,52 @@
+
+
+<div class="sticky-top">
+<nav class="navbar navbar-expand-sm navbar-light  fixed  bg-info">
+    <a class="navbar-brand" href="/"><img src="https://www.worldatlas.com/r/w960-q80/upload/c4/14/a0/shutterstock-738008380.jpg" class = "logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <div>
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href= {% url 'list/' %} >AllExpenses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={% url 'add/' %}>AddExpense</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Contact</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class ="mr-5 pr-5">
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <h6><strong>{{user.username}}<strong></h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={% url 'logout/' %}><strong>Logout<strong></a>
+            </li>
+            
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href= {% url 'register' %} ><strong>Register</strong></a>
+            </li>
+            <li class="nav-item mr-5">
+                <a class="nav-link" href={% url 'login' %}><strong>SignIn<strong></a>
+            </li>
+            {% endif %}
+        </ul>
+        
+    </div>
+    <form method = "get" action="/search" class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" id="query" aria-label="Search" name="query">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+  </nav>
+</div>
+

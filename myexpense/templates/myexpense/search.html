@@ -1,0 +1,38 @@
+{% extends 'myexpense/base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <div class="container text-center m-5">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-lg-8 offset-3">
+                <div class="card bg-info">
+                    <h1>List of Expenses</h1>
+                    <div class="card-body">
+                        <table class="table">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th>CropName</th>
+                                <th>comment</th>
+                                <th class="comment">Amount</th>
+                            </tr>
+                            {% for item in lists %}
+                            <tbody>
+                                
+                                <td>{{item.id}}</td>
+                                <td><strong>{{item.Expensename}}</strong></td>
+                                <td class="comment">{{item.comment}}</td>
+                                <td class="comment">₹ {{item.ProfitAmount}}/-</td>
+                             </tbody>     
+                                {% endfor %}
+                            <th>Total</th>
+                            <th>---------</th>
+                            <th>-----------------------------</th>
+                            <th> ₹ {{total_amount}}</th>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

@@ -1,0 +1,25 @@
+{% extends 'myexpense/base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-6 offset-4">
+      <div class="card card1 p-3 bg-success">
+      <h1 class="text-center heading">Register</h1>
+      <hr>
+      <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="btn btn-primary form-control" type="submit">Register</button>
+      </form>
+      <p class="text-center">You have an account? <a href="/login">Signin</a>.</p>
+      </div>
+  
+
+    </div>
+  </div>
+  </div>
+{% endblock content %}
+    
